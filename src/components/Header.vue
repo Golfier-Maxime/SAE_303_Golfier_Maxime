@@ -13,7 +13,7 @@ const menuVisible = ref(true);
                     </div>
                 </router-link>
             </div>
-            <div class="text-white lg:flex gap-8 font-montserrat text-2xl font-bold items-center hidden">
+            <div class="text-white lg:flex gap-8 font-montserrat text-lg font-bold items-center hidden">
                 <div class=" hover:underline underline-offset-8 decoration-Blue-Light-0 ">
                     <router-link to="/">
                         <p class="">Accueil</p>

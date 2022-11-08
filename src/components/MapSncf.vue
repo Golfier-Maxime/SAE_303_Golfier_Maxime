@@ -96,7 +96,7 @@ const selection = async (dep) => {
 <template>
   <div>
     <div class="">
-      <select class="" v-model="depSelect" @change="selection(depSelect)">
+      <select class="border border-black mb-2 mt-2" v-model="depSelect" @change="selection(depSelect)">
         <option disabled value="0">Sélectionner un département</option>
         <option v-for="dep in listeDep" :key="dep.code" :value="dep.nom">
           {{ dep.code }} - {{ dep.nom }}

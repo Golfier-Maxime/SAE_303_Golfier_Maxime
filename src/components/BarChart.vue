@@ -68,29 +68,7 @@ let chartOptions = reactive({
     // y : horizontale
     indexAxis: 'x',
 
-    // Echelles du graphique
-    scales: {
-        // axe des ordonnées
-        y: {
-            // Valeur max des y
-            suggestedMax: 30,
-            ticks: {
-                // Police
-                font: {
-                    size: 16
-                }
-            }
-        },
-        // axe des abscisses
-        x: {
-            ticks: {
-                // Police
-                font: {
-                    size: 16
-                }
-            }
-        },
-    },
+
 
     // Les plugins
     plugins: {
