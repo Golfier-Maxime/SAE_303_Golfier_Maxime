@@ -1,5 +1,5 @@
 <script setup>
-import { reactive, ref, onMounted } from 'vue';
+import { reactive, onMounted, ref } from 'vue';
 
 // Import d'un graphique type barChart
 import { Bar } from 'vue-chartjs'
@@ -16,9 +16,9 @@ ChartJS.register(Title, Tooltip, Legend, BarElement, CategoryScale, LinearScale)
 // On peut utiliser une grande variété de types, voire des objets
 const propChart = defineProps({
     chartId: { type: String, default: 'bar-chart' }, // Id du graphique
-    datasetIdKey: { type: String, default: 'label' }, // id du dataSet
-    width: { type: Number, default: 450 }, // Largeur du graphe
-    height: { type: Number, default: 400 }, // Hauteur du graphe
+    datasetIdKey: { type: String, default: 'label' }, // Id du dataSet
+    width: { type: Number, default: 300 }, // Hauteur du graphe
+    height: { type: Number, default: 300 }, // Largeur du graphe
     cssClasses: { type: String, default: '' }, // Classes css utilisées
     styles: { type: Object, default: () => { } }, // Styles utilisés
     plugins: { type: Object, default: () => { } }  // plugins utilisés
@@ -26,127 +26,170 @@ const propChart = defineProps({
 
 // Données injectées dans le graphique
 let chartData = reactive({
-    // Etiquettes l'axe 
+    // Etiquette de l'axe
     labels: [],
     // Valeurs des données du graphique
     datasets: [{
-        // Etiquette du jeu de données à projeter
-        label: [],
-        // Valeurs des données (statiques pour l'exemple)
+        // Etiquette du je de données à projeter
+        label: "Nombre de musée en Bourgogne-Franche-Comté par département",
+        // Valeurs des données
         data: [],
-        // Couleur de la barra affectée à chaque valeur
-        backgroundColor: [],
-        // Couleur de la bordure affectée à chaque valur
-        borderColor: [],
-        // Epaisseur de la bordure
+        // Couleur des barres en regard des valeurs
+        backgroundColor: [
+            'rgba(255, 99, 132, 0.2)',
+            'rgba(255, 159, 64, 0.2)',
+            'rgba(255, 205, 86, 0.2)',
+            'rgba(75, 192, 192, 0.2)',
+            'rgba(54, 162, 235, 0.2)',
+        ],
+        // Couleur de la bordure de chaque barre
+        borderColor: [
+            'rgba(255, 99, 132)',
+            'rgba(255, 159, 64)',
+            'rgba(255, 205, 86)',
+            'rgba(75, 192, 192)',
+            'rgba(54, 162, 235)',
+        ],
         borderWidth: 1
     }]
-});
+})
 
 // Options du graphique
-// Les principales utilisées, ils en existe beaucoup d'autres
+// Les principales utilisées, ils en existe d'autres
 // voir documentation
-const chartOption = reactive({
-    //aspect responsive du graphique
+let chartOptions = reactive({
+    // Aspect responsive du graphique
     responsive: true,
-    // maintient du ratio
-    maintainAspectRatio: false,
-});
-// usage d'une ref pour requete ajax
-// null au départ (important)
-let liste = ref(null);
-// liste des spécialité
-let lstSpecialite = [];
-// table a nb de villagoie
-let lstNb = [];
-// au montage du composant
+    // Maintien du ratio
+    maintainAspectRation: false,
+
+    // Type de projection utilisée
+    // x : verticale
+    // y : horizontale
+    indexAxis: 'x',
+
+    // Echelles du graphique
+    scales: {
+        // axe des ordonnées
+        y: {
+            // Valeur max des y
+            suggestedMax: 30,
+            ticks: {
+                // Police
+                font: {
+                    size: 16
+                }
+            }
+        },
+        // axe des abscisses
+        x: {
+            ticks: {
+                // Police
+                font: {
+                    size: 16
+                }
+            }
+        },
+    },
+
+    // Les plugins
+    plugins: {
+        // Légende des données
+        legend: {
+            // label des données
+            labels: {
+                color: 'green',
+                font: {
+                    size: 16
+                }
+            }
+        },
+        title: {
+            // Affichage du titre
+            display: true,
+            // Libellé du graphique
+            text: "Chartjs - BarChart",
+            // Couleur du texte
+            color: 'blue',
+            // Police du texte
+            font: {
+                size: 16
+            }
+        }
+    }
+
+})
+
+let liste = ref()
 onMounted(async () => {
-    await fetch("https://data.culture.gouv.fr/api/records/1.0/search/?dataset=liste-et-localisation-des-musees-de-france&q=&facet=region_administrative&facet=departement&refine.region_administrative=Bourgogne-Franche-Comt%C3%A9")
-        // reponse demandé en json
-        .then((response) => response.json())
-        // recup des rep
-        .then((response) => {
-            liste = response;
-            // on verifie dans la console l'obtention des resultats
-            console.log("response", liste);
 
-            // parcours de la liste des villageois
-            // pour placer les spécialités dans un set
-            // permet d'eliminer les doublon
-            let setSp = new Set();
-            liste.forEach((vil) => {
-                setSp.add(vil.laSpecialite.nom);
-            });
-            console.log("setSp :", setSp);
-            // recuperation des valeur du set dans un tableau
-            chartData.labels = Array.from(setSp);
-            // tri du tableau par ordre alphabétique
-            chartData.labels.sort();
-            // calcul du nombre de villageois par specialité
-            let cpt = [];
-            // parcours des pécialités
-            chartData.labels.forEach(function (spe) {
-                // initiation du nombre pour la spécialité en cours
-                let nb = 0;
-                // parcours de la liste des villageois
-                liste.forEach((vil) => {
-                    // si c'est la bonne spé
-                    // on compte plus 1
-                    if (spe == vil.laSpecialite.nom) {
-                        nb++;
+    let request = "https://data.culture.gouv.fr/api/records/1.0/search/"
+        + '?dataset=liste-et-localisation-des-musees-de-france'
+        + '&q='
+        + '&rows=100'
+        + '&refine.region_administrative=Bourgogne-Franche-Comt%C3%A9'
+
+    await fetch(request)
+        // Réponse demandée en json
+        .then(response => response.json())
+        // récupération de la réponse
+        .then(response => {
+            liste.value = new Array(response);
+            // On vérifie dans la consle l'obtention des résultats
+            console.log("response", liste.value);
+            // Récupération du nombres de valeurs retournées
+            chartOptions.plugins.title.text += liste.value[0].nhits + " réponses"
+            // Chargement des labels (axe des ordonnées)
+            // Création d'un set pour valeurs uniques
+            let setLabels = new Set()
+            // Parcours des valeurs , récupération des années
+            liste.value[0].records.forEach((el) => {
+                setLabels.add(el.fields.departement)
+            })
+            // Transmission des valeurs du set aux labels 
+            chartData.labels = Array.from(setLabels)
+            // Tri des labels par ordre croissant
+            chartData.labels.sort()
+
+            // Calcul des valeurs par labels
+            // Comptage pour les entrées payantes
+            let cptp = []
+            // Comptage pour les entrées gratuites
+
+            // Parcours des labels
+            chartData.labels.forEach((label) => {
+                // Parcours des données
+                // Compteurs pour un labels
+                let nbp = 0
+
+                // Parcours des valeurs
+                liste.value[0].records.forEach((el) => {
+                    // Si c'est le bon label
+                    if (label == el.fields.departement) {
+                        // Comptage des valeurs
+                        if (el.fields.departement) {
+                            nbp += 1
+                        }
                     }
-                });
-                // on place le nb de villageois de cette spécialité
-                // dans le tableau de comptage
-                cpt.push(nb);
-            });
-            // on transfert le tableau de comptage dans les data
-            chartData.datasets[0].data = cpt;
-            // calcul des couleurs et bordure
-            let bgColor = [];
-            let bdColor = [];
-            // pour chaque valeur existante
-            cpt.forEach(function (val) {
-                // on calcul la couleur du secteur
-                let c1 = couleur(0, 255);
-                let c2 = couleur(0, 255);
-                let c3 = couleur(0, 255);
-                let tr = 0.5;
-                // couleur avec transparence
-                let color = "rgba(" + [c1, c2, c3, tr].join(",") + ")";
-                bgColor.push(color);
-                //bordure sans transparence
-                let border = "rgba(" + [c1, c2, c3, tr].join(",") + ")";
-                bdColor.push(color);
-            });
-            // chargement des couleur et des bordure
-            chartData.datasets[0].backgroundColor = bgColor;
-            chartData.datasets[0].borderColor = bdColor;
-        })
-        .catch((error) => console.log("erreur ajax"));
-});
-//fonction de clacul aléatoire des couleurs
-const couleur = (min, max) => {
-    return Math.floor(Math.random() * (max - min));
-};
+                })
+                // Mise à jour des tableaux
+                cptp.push(nbp)
 
+            })
+            // chargement des données
+            chartData.datasets[0].data = cptp
+
+            console.log("chartData", chartData.datasets)
+        })
+        .catch(error => console.log('erreur Ajax', error))
+})
 </script>
 
 <template>
-    <div class="">
-        <!-- 
-            chart-options : Options du graphique
-            chart-data : données du graphique
-            chart-id : Identifiant du graphique
-            dataset-id-key : Identifiant des données
-            plugins : plugins utilisés
-            css-classes : Classes css utilisées
-            styles : styles css utilisés
-            width : largeur du graphique
-            height : hauteur du graphique
-        -->
-        <Bar :chart-options="chartOptions" :chart-data="chartData" :chart-id="chartId" :dataset-id-key="datasetIdKey"
-            :plugins="plugins" :css-classes="cssClasses" :styles="styles" :width="width" :height="height" />
-    </div>
-
+    <Bar :chart-options="chartOptions" :chart-data="chartData" :chart-id="chartId" :dataset-id-key="datasetIdKey"
+        :plugins="plugins" :css-classes="cssClasses" :styles="styles" :width="width" :height="height" />
 </template>
+
+<style scoped>
+
+</style>

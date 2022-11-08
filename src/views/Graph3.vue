@@ -1,10 +1,10 @@
 <script setup>
-import BarchartView from '../components/BarChart.vue';
+import PiechartView from '../components/PieChart.vue';
 </script>
 
 <template>
     <div class="w-[100vh]">
-        <BarchartView></BarchartView>
+        <PiechartView></PiechartView>
     </div>
 </template>
 

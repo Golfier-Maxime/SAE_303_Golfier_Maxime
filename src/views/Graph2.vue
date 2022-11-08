@@ -1,10 +1,10 @@
 <script setup>
-import BarchartView from '../components/BarChart.vue';
+import LinechartView from '../components/LineChart.vue';
 </script>
 
 <template>
     <div class="w-[100vh]">
-        <BarchartView></BarchartView>
+        <LinechartView></LinechartView>
     </div>
 </template>
 
