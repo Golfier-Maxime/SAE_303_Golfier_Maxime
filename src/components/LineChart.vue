@@ -124,7 +124,7 @@ let chartOptions = reactive({
         // Titre du graphique      
         title: {
             // Affichage
-            display: true,
+            display: false,
             // Libellé du graphique
             text: 'Nombre de visites dans les musées en Bourgogne-Franche-Comté par département',
             // Police du texte

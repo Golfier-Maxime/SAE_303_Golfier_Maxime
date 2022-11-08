@@ -31,7 +31,7 @@ let chartData = reactive({
     // Valeurs des données du graphique
     datasets: [{
         // Etiquette du je de données à projeter
-        label: "Nombre de musée en Bourgogne-Franche-Comté par département",
+        label: [],
         // Valeurs des données
         data: [],
         // Couleur des barres en regard des valeurs
@@ -106,7 +106,7 @@ let chartOptions = reactive({
         },
         title: {
             // Affichage du titre
-            display: true,
+            display: false,
             // Libellé du graphique
             text: "Chartjs - BarChart",
             // Couleur du texte

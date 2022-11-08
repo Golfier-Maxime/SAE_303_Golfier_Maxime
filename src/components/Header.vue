@@ -21,22 +21,22 @@ const menuVisible = ref(true);
                 </div>
                 <div class=" hover:underline underline-offset-8 decoration-Blue-Light-0 ">
                     <router-link to="/graph1">
-                        <p>graph1</p>
+                        <p>Article 1</p>
                     </router-link>
                 </div>
                 <div class=" hover:underline underline-offset-8 decoration-Blue-Light-0 ">
                     <router-link to="/graph2">
-                        <p>graph2</p>
+                        <p>Article 2</p>
                     </router-link>
                 </div>
                 <div class=" hover:underline underline-offset-8 decoration-Blue-Light-0 ">
                     <router-link to="/graph3">
-                        <p>graph3</p>
+                        <p>Article 3</p>
                     </router-link>
                 </div>
                 <div class=" hover:underline underline-offset-8 decoration-Blue-Light-0 ">
                     <router-link to="/graph4">
-                        <p>graph4</p>
+                        <p>Article 4</p>
                     </router-link>
                 </div>
                 <div class="mr-[45px]  hover:underline underline-offset-8 decoration-Blue-Light-0 ">
@@ -58,8 +58,10 @@ const menuVisible = ref(true);
         </div>
         <div class="bg-Blue-Black-0 font-bold text-white lg:hidden pl-10" :class="{ hidden: menuVisible }">
             <RouterLink class="font-montserrat  block py-2 px-4" to="/">Accueil</RouterLink>
-            <RouterLink class=" font-montserrat block py-2 px-4" to="/graph1">graph1</RouterLink>
-            <RouterLink class=" font-montserrat block py-2 px-4" to="/graph2">graph2</RouterLink>
+            <RouterLink class=" font-montserrat block py-2 px-4" to="/graph1">Article 1</RouterLink>
+            <RouterLink class=" font-montserrat block py-2 px-4" to="/graph2">Article 2</RouterLink>
+            <RouterLink class=" font-montserrat block py-2 px-4" to="/graph3">Article 3</RouterLink>
+            <RouterLink class=" font-montserrat block py-2 px-4" to="/graph4">Article 4</RouterLink>
             <RouterLink class="font-montserrat block py-2 px-4" to="/map">Carte</RouterLink>
 
         </div>

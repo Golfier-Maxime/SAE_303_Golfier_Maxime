@@ -148,7 +148,7 @@ const tableFilter = (field) => {
                 <form class="">
                     <div class="">
                         <input type="checkbox" class="" id="customSwitch1" v-model="modeSelected" @change="selectMode">
-                        <label class="" for="customSwitch1">dégradé/aléatoire</label>
+                        <label class="items-center" for="customSwitch1">dégradé/aléatoire</label>
                     </div>
                 </form>
 
@@ -172,7 +172,8 @@ const tableFilter = (field) => {
                                     <span class="">
                                         <i class="fa fa-filter fa-sm"></i>
                                     </span>
-                                    <input class="" @input="tableFilter(field)" v-model="field.filter" />
+                                    <input class="border border-black" @input="tableFilter(field)"
+                                        v-model="field.filter" />
                                 </div>
                             </th>
                         </tr>
