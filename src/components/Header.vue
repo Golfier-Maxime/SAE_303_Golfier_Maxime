@@ -39,6 +39,11 @@ const menuVisible = ref(true);
                         <p>Article 4</p>
                     </router-link>
                 </div>
+                <div class=" hover:underline underline-offset-8 decoration-Blue-Light-0 ">
+                    <router-link to="/graph5">
+                        <p>Article 5</p>
+                    </router-link>
+                </div>
                 <div class="mr-[45px]  hover:underline underline-offset-8 decoration-Blue-Light-0 ">
                     <router-link to="/map">
                         <p>Carte</p>
@@ -62,6 +67,7 @@ const menuVisible = ref(true);
             <RouterLink class=" font-montserrat block py-2 px-4" to="/graph2">Article 2</RouterLink>
             <RouterLink class=" font-montserrat block py-2 px-4" to="/graph3">Article 3</RouterLink>
             <RouterLink class=" font-montserrat block py-2 px-4" to="/graph4">Article 4</RouterLink>
+            <RouterLink class=" font-montserrat block py-2 px-4" to="/graph5">Article 5</RouterLink>
             <RouterLink class="font-montserrat block py-2 px-4" to="/map">Carte</RouterLink>
 
         </div>

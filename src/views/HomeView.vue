@@ -57,10 +57,10 @@ import LineView from '../components/LineChart.vue';
   <!-- Article 5 -->
   <article class="mt-12  shadow-lg  ml-2 mr-2 rounded-md pb-2">
     <div class="flex flex-col ">
-      <img src="@/assets/filtre.jpg" class="img_taille rounded-t-md">
+      <img src="@/assets/musee5.jpg" class="img_taille rounded-t-md">
       <h3 class="font-montserrat font-medium text-center">Liste des musées en France avec Filtre</h3>
       <button class="bg-Blue-Light-0 m-auto px-1 rounded-md text-white font-montserrat block font-semibold">
-        <RouterLink to="/graph4">Découvrir</RouterLink>
+        <RouterLink to="/graph5">Analyser</RouterLink>
       </button>
     </div>
   </article>
