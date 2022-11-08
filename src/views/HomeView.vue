@@ -7,15 +7,19 @@ import LineView from '../components/LineChart.vue';
 </script>
 
 <template>
-  <div>
-    <img src="../assets/museum.png" alt="" class="">
-    <p class="font-montserrat text-[24px] text-white ml-2 font-bold lg:text-[60px] mt-[-80px] ">Analyser les
+  <div class="bg-[url('@/assets/museum.png')] flex flex-col">
+    <!-- <img src="../assets/museum.png" alt="" class=""> -->
+    <p class="font-montserrat text-[24px] text-white  ml-2 font-bold lg:text-[60px]  text-center">Analyser les
       musées avec
-      Data-Museum.</p>
+    </p>
+    <p class="font-montserrat text-[24px] text-white  ml-2 font-bold lg:text-[60px]  text-center">Data-Museum.</p>
   </div>
-  <div>
-    <p>oui</p>
-  </div>
+  <article>
+    <div>
+      <img src="" alt="">
+
+    </div>
+  </article>
 </template>
 
 <style scoped>
