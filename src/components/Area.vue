@@ -10,8 +10,8 @@ ChartJS.register(Title, Tooltip, Legend, ArcElement, RadialLinearScale)
 let propChart = defineProps({
     chartId: { type: String, default: 'polar-chart' }, // Id du graphique
     datasetIdKey: { type: String, default: 'label' }, // id du dataSet
-    width: { type: Number, default: 500 }, // Hauteur du graphe
-    height: { type: Number, default: 500 }, // Largeur du graphe
+    width: { type: Number, default: 400 }, // Hauteur du graphe
+    height: { type: Number, default: 400 }, // Largeur du graphe
     cssClasses: { type: String, default: '' }, // Classes css utilisées
     styles: { type: Object, default: () => { } }, // Styles utilisés
     plugins: { type: Object, default: () => { } }  // plugins utilisés
@@ -73,15 +73,12 @@ onMounted(async () => {
 </script>
 
 <template>
-    <div class="container">
-
-        <nav class="navbar navbar-expand navbar-dark bg-dark">
-
-            <form class="navbar-nav ml-auto">
-                <div class="custom-control custom-switch">
-                    <input type="checkbox" class="custom-control-input" id="customSwitch1" v-model="modeSelected"
-                        @change="selectMode">
-                    <label class="custom-control-label" for="customSwitch1">
+    <div class="">
+        <nav class="">
+            <form class="">
+                <div class="">
+                    <input type="checkbox" class="" id="customSwitch1" v-model="modeSelected" @change="selectMode">
+                    <label class="" for="customSwitch1">
                         dégradé/aléatoire
                     </label>
                 </div>

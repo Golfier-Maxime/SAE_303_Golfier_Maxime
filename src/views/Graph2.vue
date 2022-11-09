@@ -6,15 +6,16 @@ import LinechartView from '../components/LineChart.vue';
     <div class="flex justify-center">
         <div class="ml-2 mr-2 mt-12  lg:w-[1000px] lg:flex lg:gap-3 ">
             <div class="flex flex-col ">
-                <h2 class="font-montserrat font-medium text-center">Nombre de visites dans les musées en
+                <h2 class="font-montserrat font-semibold text-center">Nombre de visites dans les musées en
                     Bourgogne-Franche-Comté
                     par département
                 </h2>
                 <LinechartView class="lg:w-[600px]"></LinechartView>
+                <p class="font-montserrat font-light text-xs text-center">Source : data.culture.gouv.fr</p>
             </div>
-            <div>
+            <div class="mt-4">
                 <div class="">
-                    <h2 class="font-montserrat font-medium text-center">
+                    <h2 class="font-montserrat font-semibold text-center">
                         Une chute avec le Covid.
                     </h2>
                     <p class="font-montserrat  mt-3">Avec le Covid,

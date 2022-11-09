@@ -141,8 +141,6 @@ const tableFilter = (field) => {
 
 <template>
     <main class="">
-        <!-- <h1>Musee</h1> -->
-
         <div class="">
             <div class="">
                 <form class="">

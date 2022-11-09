@@ -18,8 +18,8 @@ ChartJS.register(Title, Tooltip, Legend, ArcElement, CategoryScale)
 const propChart = defineProps({
     chartId: { type: String, default: 'doughnut-chart' }, // Id du graphique
     datasetIdKey: { type: String, default: 'label' }, // id du dataSet
-    width: { type: Number, default: 500 }, // Largeur du graphe
-    height: { type: Number, default: 500 }, // Hauteur du graphe
+    width: { type: Number, default: 320 }, // Largeur du graphe
+    height: { type: Number, default: 320 }, // Hauteur du graphe
     cssClasses: { type: String, default: '' }, // Classes css utilisées
     styles: { type: Object, default: () => { } }, // Styles utilisés
     plugins: { type: Object, default: () => { } }  // plugins utilisés
@@ -78,18 +78,13 @@ onMounted(async () => {
             let cpt = [];
             // Parcours des spécialités
             chartData.labels.forEach(function (reg) {
-                // Initialisation du nombre pour le spécialité en cours
                 let nb = 0
-                // Parcours de la liste des villageois
                 liste.records.forEach((el) => {
-                    // Si c'est la bonne spécialité
                     // on compte +1
                     if (reg == el.fields.region_administrative) {
                         nb++
                     }
                 })
-                // on place le nb de villageois de cette spécialité
-                // dans le tableau de comptage
                 cpt.push(nb);
             })
             // On transfert le tableau de comptage dans les data 

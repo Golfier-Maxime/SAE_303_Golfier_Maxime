@@ -1,9 +1,4 @@
 <script setup>
-import BarchartView from '../components/BarChart.vue';
-import DaughnutView from '../components/DoughnutChart.vue';
-import LineView from '../components/LineChart.vue';
-
-
 </script>
 
 <template>
@@ -75,6 +70,16 @@ import LineView from '../components/LineChart.vue';
         </button>
       </div>
     </article>
+  </div>
+  <div class="flex-">
+    <div class="mx-2 mt-4">
+      <h2 class="font-montserrat font-semibold text-center">Conclusion</h2>
+      <p class="font-montserrat  mt-3">Le but de ces analyse est de ce rendre compte de l'importance des musées en
+        france.
+        Surtout on remarque l'importance des régions plus peuplées et développées dans le domaine des musées et leurs
+        visiteurs.
+      </p>
+    </div>
   </div>
 </template>
 

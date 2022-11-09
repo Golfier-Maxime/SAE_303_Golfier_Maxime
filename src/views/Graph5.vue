@@ -6,14 +6,15 @@ import AreaView from '../components/Area.vue';
     <div class="flex justify-center">
         <div class="ml-2 mr-2 mt-12  lg:w-[1000px] lg:flex lg:gap-3">
             <div class="flex flex-col">
-                <h2 class="font-montserrat font-medium text-center">Nombre de musée par ans
+                <h2 class="font-montserrat font-semibold text-center">Nombre de musée par ans
                 </h2>
                 <legend class="font-montserrat font-light text-center">(Il y a beaucoup de donnée, c'est long à charger)
                 </legend>
-                <AreaView class="lg:w-[600px]"></AreaView>
+                <AreaView class="lg:w-[600px] w-200px"></AreaView>
+                <p class="font-montserrat font-light text-xs text-center">Source : data.culture.gouv.fr</p>
             </div>
-            <div class="">
-                <h2 class="font-montserrat font-medium text-center">
+            <div class="mx-2 mt-4">
+                <h2 class="font-montserrat font-semibold text-center">
                     Une répétition au fils des années.
                 </h2>
                 <p class="font-montserrat  mt-3">Cela nous saute au yeux,

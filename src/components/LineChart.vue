@@ -53,7 +53,7 @@ let chartData = reactive({
             data: [],
             borderColor: 'rgba(255, 0, 0, 0.5)',
             tension: 0.5,
-            fill: true
+
         },
         {
             // Etiquette du jeu de données à projeter
@@ -62,7 +62,7 @@ let chartData = reactive({
             data: [],
             borderColor: 'rgba(0, 0, 255, 0.5)',
             tension: 0.5,
-            fill: true
+
         },
         {
             // Etiquette du jeu de données à projeter
@@ -71,7 +71,7 @@ let chartData = reactive({
             data: [],
             borderColor: 'rgba(0, 127, 127, 0.5)',
             tension: 0.5,
-            fill: true
+
         },
         {
             // Etiquette du jeu de données à projeter
@@ -80,7 +80,7 @@ let chartData = reactive({
             data: [],
             borderColor: 'rgba(127, 127, 0, 0.5)',
             tension: 0.5,
-            fill: true
+
         },
         {
             // Etiquette du jeu de données à projeter
@@ -89,7 +89,7 @@ let chartData = reactive({
             data: [],
             borderColor: 'rgba(127, 0, 127, 0.5)',
             tension: 0.5,
-            fill: true
+
         },
         {
             // Etiquette du jeu de données à projeter
@@ -98,7 +98,7 @@ let chartData = reactive({
             data: [],
             borderColor: 'rgba(127, 0, 0, 0.5)',
             tension: 0.5,
-            fill: true
+
         },
         {
             // Etiquette du jeu de données à projeter
@@ -107,7 +107,7 @@ let chartData = reactive({
             data: [],
             borderColor: 'rgba(0, 0, 127, 0.5)',
             tension: 0.5,
-            fill: true
+
         },
 
     ]
