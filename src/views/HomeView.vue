@@ -74,7 +74,10 @@
   <div class="flex-">
     <div class="mx-2 mt-4">
       <h2 class="font-montserrat font-semibold text-center">Conclusion</h2>
-      <p class="font-montserrat  mt-3">Le but de ces analyse est de ce rendre compte de l'importance des musées en
+      <p class="font-montserrat  mt-3 text-center lg:mx-56 mx-0">Le but de ces analyse est de ce rendre compte de
+        l'importance
+        des
+        musées en
         france.
         Surtout on remarque l'importance des régions plus peuplées et développées dans le domaine des musées et leurs
         visiteurs.
